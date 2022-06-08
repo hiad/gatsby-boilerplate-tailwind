@@ -24,6 +24,7 @@ const Header = () => {
       THIS IS THE HEADER
       {scrolling}
       {scrollTop}
+      {scrolling ? <p>isScrolling</p> : <p>isNotScrolling</p>}
     </header>
   );
 };
