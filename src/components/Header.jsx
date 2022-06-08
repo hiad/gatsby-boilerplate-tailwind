@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import * as React from 'react';
 // import { StaticImage } from 'gatsby-plugin-image';
 // import { Link } from 'gatsby';
@@ -18,9 +19,10 @@ const Header = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
 
+  const classScroll = classNames({'scroll' : scrolling || scrollTop > 0});
 
   return (
-    <header>
+    <header className={classScroll}>
       THIS IS THE HEADER
       {scrolling}
       {scrollTop}
