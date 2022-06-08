@@ -5,10 +5,25 @@ import * as React from 'react';
 
 
 const Header = () => {
+  const [scrolling, setScrolling] = React.useState(false);
+  const [scrollTop, setScrollTop] = React.useState(0);
+
+  React.useEffect(() => {
+    const onScroll = e => {
+      setScrollTop(e.target.documentElement.scrollTop);
+      setScrolling(e.target.documentElement.scrollTop > scrollTop);
+    };
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [scrollTop]);
+
 
   return (
     <header>
       THIS IS THE HEADER
+      {scrolling}
+      {scrollTop}
     </header>
   );
 };
